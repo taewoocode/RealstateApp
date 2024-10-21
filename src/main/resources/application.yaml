@@ -15,3 +15,7 @@ spring:
   p6spy:
     logging:
       log: com.p6spy.engine.spy.appender.StdoutLogger
+
+kakao:
+  api:
+    key: 71e0965b8aa547657ff76c8616b32137  # ??? REST API ? ??
