@@ -20,27 +20,27 @@ public class UserController {
     }
 
     //update
-    @PostMapping
+    @PostMapping("/signup")
     public ResponseEntity<User> createUser(@RequestBody User user) {
         User createUser = userService.createUser( user );
         return new ResponseEntity<>( createUser, HttpStatus.CREATED );
     }
 
     //Get User by Id
-    @GetMapping
+    @GetMapping("/{id}")
     public ResponseEntity<User> getUserById(@PathVariable Long id) {
         User userById = userService.getUserById( id );
         return ResponseEntity.ok( userById );
     }
 
     //Get User By Email
-    @GetMapping
+    @GetMapping("/email")
     public ResponseEntity<User> getUserByEmail(@RequestParam String email) {
         User userByEmail = userService.getUserByEmail( email );
         return ResponseEntity.ok( userByEmail );
     }
 
-    @PutMapping
+    @PutMapping("/{id}")
     public ResponseEntity<User> updateUser(@PathVariable Long id, @RequestBody User userDetails) {
         User user = userService.updateUser( id, userDetails );
         return ResponseEntity.ok( user );
