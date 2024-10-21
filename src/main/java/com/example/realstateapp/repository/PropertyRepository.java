@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Repository
+// PropertyRepository.java
 public interface PropertyRepository extends JpaRepository<Property, Long> {
-    List<Property> findSubwayStation(String subwayStation);
+    List<Property> findBySubwayStation(String subwayStation);
 }
