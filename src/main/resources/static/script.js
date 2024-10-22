@@ -106,6 +106,56 @@ function initializeMap() {
     };
 }
 
+// script.js
+
+document.getElementById("search-button").addEventListener("click", function() {
+    const subwayStation = document.getElementById("subway-station").value;
+
+    // Kakao Maps API를 사용하여 지하철역의 좌표를 가져옵니다.
+    const geocoder = new kakao.maps.services.Geocoder();
+
+    geocoder.addressSearch(subwayStation, function(result, status) {
+        if (status === kakao.maps.services.Status.OK) {
+            const coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+            displayNearbyProperties(coords); // 매물 표시 함수 호출
+        } else {
+            alert("지하철역을 찾을 수 없습니다.");
+        }
+    });
+});
+
+function displayNearbyProperties(coords) {
+    // 여기서 주변 매물을 가져와서 표시하는 로직을 구현합니다.
+    const propertyList = document.getElementById("property-list");
+    propertyList.innerHTML = ''; // 이전 결과 초기화
+
+    // 예시 데이터 (실제 데이터는 서버에서 가져와야 합니다.)
+    const properties = [
+        { title: "아파트 1", price: "2억", location: "경기 광주", description: "경기 광주역 근처의 아파트입니다.", image: "apartment1.jpg" },
+        { title: "빌라 1", price: "1.5억", location: "경기 광주", description: "경기 광주역 근처의 빌라입니다.", image: "villa1.jpg" },
+        // 더 많은 매물 추가...
+    ];
+
+    // 매물 리스트 업데이트
+    properties.forEach(property => {
+        const propertyItem = document.createElement("div");
+        propertyItem.classList.add("property-item");
+        propertyItem.innerHTML = `
+            <h3>${property.title}</h3>
+            <p>가격: ${property.price}</p>
+            <p>위치: ${property.location}</p>
+            <p>${property.description}</p>
+            <img src="${property.image}" alt="${property.title}" style="width:100%; height:auto;">
+        `;
+        propertyList.appendChild(propertyItem);
+    });
+
+    // 결과 개수 표시
+    const resultCount = document.getElementById("result-count");
+    resultCount.textContent = `${properties.length}개의 매물이 검색되었습니다.`;
+}
+
+
 // 매물 위치 업데이트 함수
 function updateMap(filteredProperties) {
     const mapContainer = document.getElementById('map'); // 지도를 표시할 div

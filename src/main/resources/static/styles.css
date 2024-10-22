@@ -124,3 +124,23 @@ footer p {
     border-radius: 10px; /* 선택사항: 모서리를 둥글게 */
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* 선택사항: 그림자 효과 추가 */
 }
+
+.property-list {
+    margin-top: 20px;
+}
+
+.property-item {
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.property-item h3 {
+    margin: 0 0 10px;
+}
+
+.property-item img {
+    border-radius: 5px;
+}

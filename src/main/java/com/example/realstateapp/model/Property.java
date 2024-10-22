@@ -26,6 +26,7 @@ public class Property {
     private String subwayStation; // 지하철역 이름
     private double latitude; // 위도
     private double longitude; // 경도
+    private String imageUrl;
 
     @ManyToOne
     @JoinColumn(name = "user_id")

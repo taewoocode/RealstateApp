@@ -19,6 +19,7 @@ public class PropertyController {
         this.kakaoMapService = kakaoMapService;
     }
 
+    //검색기능
     @GetMapping("/subway")
     public ResponseEntity<List<Property>> getPropertiesBySubwayStation(@RequestParam String subwayStation) {
         // 지하철역의 위치 정보를 가져옴

@@ -35,6 +35,8 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
     implementation 'mysql:mysql-connector-java:8.0.33' // 버전 번호를 명시
     implementation('com.github.gavlyukovskiy:p6spy-spring-boot-starter:1.5.6')
+    implementation 'com.amazonaws:aws-java-sdk-s3:1.12.300'
+
 }
 
 tasks.named('test') {
